@@ -1,0 +1,191 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Pokemon {
+-name : String
+-level: int
++Pokemon(name:String, level:int)
++setStats(hp:double, attack:double, defense:double, specialAttack:double, specialDefense:double, speed:double) : void
+#setType(type:Type...) : void
+#setMove(move:Move...) : void
+#addMove(move:Move) : void
+}
+
+class Furfrou {
++Furfrou(name:String, level:int) : void
+}
+
+class Clauncher {
++Clauncher(name:String, level:int) : void
+}
+
+class Clawitzer {
++Clawitzer(name:String, level:int) : void
+}
+
+class Oddish {
++Oddish(name:String, level:int) : void
+}
+
+class Gloom {
++Gloom(name:String, level:int) : void
+}
+
+class Bellossom {
++Bellossom(name:String, level:int) : void
+}
+
+class Move {
+#type:Type
+#power:double
+#accuracy:double
+#priority:int
+#hits:int
++Move() : void
++Move(type:Type, power:double, accuracy:double) : void 
++Move(type:Type, power:double, accuracy:double, priority:int, hits:int) : void
+#applyOppEffects(pokemon:Pokemon) : void
+#applySelfEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class DamageMove {
++DamageMove() : void
++DamageMove(type:Type, power:double, accuracy:double) : void 
++DamageMove(type:Type, power:double, accuracy:double, priority:int, hits:int) : void
+#applyOppDamage(pokemon:Pokemon, damage:double) : void
+#applySelfDamage(pokemon:Pokemon, damage:double) : void
+}
+
+class StatusMove {
++StatusMove() : void
++StatusMove(type:Type, power:double, accuracy:double) : void 
++StatusMove(type:Type, power:double, accuracy:double, priority:int, hits:int) : void
+}
+
+class SpecialMove {
++SpecialMove() : void
++SpecialMove(type:Type, power:double, accuracy:double) : void 
++SpecialMove(type:Type, power:double, accuracy:double, priority:int, hits:int) : void
++calcAttDefFactor(pokemon1: Pokemon, pokemon2:Pokemon) : double
+}
+
+class PhysicalMove {
++PhysicalMove() : void
++PhysicalMove(type:Type, power:double, accuracy:double) : void 
++PhysicalMove(type:Type, power:double, accuracy:double, priority:int, hits:int) : void
++calcAttDefFactor(pokemon1: Pokemon, pokemon2:Pokemon) : double
+}
+
+class Facade {
++Facade() : void
+#applySelfEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class DarkPulse {
++DarkPulse() : void
+#applyOppEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class MegaDrain {
++MegaDrain() : void
+#applySelfDamage(pokemon:Pokemon, damage:double) : void
+#describe() : String
+}
+
+class ShadowBall {
++ShadowBall() : void
+#applyOppEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class SludgeWave {
++SludgeWave() : void
+#applyOppEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class Venoshock {
++Venoshock() : void
+#applyOppDamage(pokemon:Pokemon, damage:double) : void
+#describe() : String
+}
+
+class WaterPulse {
++WaterPulse() : void
+#applyOppEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class Refresh {
++Refresh() : void
+#applySelfEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class Rest {
++Rest() : void
+#applySelfEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class SleepPowder {
++SleepPowder() : void
+#applyOppEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class SweetScent {
++SweetScent() : void
+#applyOppEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+class SwordsDance {
++SwordsDance() : void
+#applySelfEffects(pokemon:Pokemon) : void
+#describe() : String
+}
+
+Furfrou --|> Pokemon
+Clauncher --|> Pokemon
+Clawitzer --|> Clauncher
+Oddish --|> Pokemon
+Gloom --|> Oddish
+Bellossom --|> Gloom
+DamageMove --|> Move
+StatusMove --|> Move
+SpecialMove --|> DamageMove
+PhysicalMove --|> DamageMove
+Facade --|> PhysicalMove
+DarkPulse --|> SpecialMove
+MegaDrain --|> SpecialMove
+ShadowBall --|> SpecialMove
+SludgeWave --|> SpecialMove
+Venoshock --|> SpecialMove
+WaterPulse --|> SpecialMove
+Refresh --|> StatusMove
+Rest --|> StatusMove
+SleepPowder --|> StatusMove
+SweetScent --|> StatusMove
+SwordsDance --|> StatusMove
+
+Facade --* Furfrou
+Refresh --* Furfrou
+DarkPulse --* Furfrou
+Rest --* Furfrou
+
+Venoshock --* Clauncher
+SludgeWave --* Clauncher
+WaterPulse --* Clauncher
+ShadowBall --* Clawitzer
+
+SweetScent --* Oddish
+MegaDrain --* Oddish
+SleepPowder --* Gloom
+SwordsDance --* Bellossom
+
+@enduml
