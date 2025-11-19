@@ -1,3 +1,3 @@
-# hehe
-
-![A-Train](https://i.makeagif.com/media/8-05-2022/ZA4g0u.gif)
+# Описание
+Мой [github](https://github.com/dxunvrs)  
+Что есть: 3 лабы по инфе, 2 по проге, 1 по ОПД
