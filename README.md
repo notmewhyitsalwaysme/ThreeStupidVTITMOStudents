@@ -1,4 +1,4 @@
 # Описание
-Мой [github](https://github.com/dxunvrs)  
+Мой [github](https://github.com/dxunvrs) - гитхаб любителя веток, так называемый branches enjoyer  
 Что есть: 3 лабы по инфе, 2 по проге, 1 по ОПД
 и ветки
