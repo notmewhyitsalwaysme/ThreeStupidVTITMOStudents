@@ -4,6 +4,6 @@ Some of this shit can not work like you expected, and it's like it need to be. I
 
 I warned you.
 
-The author don't take any responsibilitu about this code.
+The author don't take any responsibility about this code.
 
 That's all, I guess...
